@@ -18,26 +18,16 @@ Target:
     - Space Complexity: O(n)
 """
 
-HINTS = [
-    "A hash set can keep track of elements we have already seen.",
-    "As we iterate through the list, check if the current element is in the set.",
-    "If it is in the set, we found a duplicate, so return True.",
-    "Otherwise, add the element to the set and continue. If the loop finishes, return False.",
-]
-
-
 class Solution:
     def containsDuplicate(self, nums: list[int]) -> bool:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {"input": ([1, 2, 3, 1],), "expected": True, "name": "example1"},
     {"input": ([1, 2, 3, 4],), "expected": False, "name": "example2"},
     {"input": ([1, 1, 1, 3, 3, 4, 3, 2, 4, 2],), "expected": True, "name": "example3"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

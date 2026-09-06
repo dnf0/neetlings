@@ -37,14 +37,6 @@ Target:
     - Space Complexity: O(1)
 """
 
-HINTS = [
-    "The input array is already sorted in non-decreasing order. How can we leverage sorted order without extra space?",
-    "Consider placing one pointer at the beginning (`left = 0`) and one at the end (`right = len(numbers) - 1`). Compute the sum of the elements at these pointers.",
-    "If the current sum is smaller than `target`, moving `left` to the right increases the sum. If the sum is larger than `target`, moving `right` to the left decreases the sum.",
-    "Loop `while left < right:`. Calculate `total = numbers[left] + numbers[right]`. If `total == target`, return `[left + 1, right + 1]` (remember 1-based indexing). If `total < target`, increment `left`. Otherwise, decrement `right`.",
-]
-
-
 class Solution:
     def twoSum(self, numbers: list[int], target: int) -> list[int]:
         """Find 1-indexed positions of two numbers summing to target.
@@ -62,7 +54,6 @@ class Solution:
         # TODO: Implement your solution here
         raise NotImplementedError
 
-
 TEST_CASES = [
     {"input": ([2, 7, 11, 15], 9), "expected": [1, 2], "name": "normal"},
     {"input": ([2, 3, 4], 6), "expected": [1, 3], "name": "three_elements"},
@@ -71,7 +62,6 @@ TEST_CASES = [
     {"input": ([0, 0, 3, 4], 0), "expected": [1, 2], "name": "zeros"},
     {"input": ([-1000, -500, 2, 7, 1000], 0), "expected": [1, 5], "name": "large_differences"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

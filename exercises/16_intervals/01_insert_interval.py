@@ -29,20 +29,10 @@ Target:
     - Space Complexity: O(n)
 """
 
-
-HINTS = [
-    "The intervals are already sorted. We can iterate through and handle three cases relative to newInterval.",
-    "If the current interval ends before newInterval starts, add the current interval to the result.",
-    "If the current interval starts after newInterval ends, we can insert newInterval (if not done yet) and add all remaining intervals.",
-    "If there is an overlap, merge them by updating newInterval = [min(start, newStart), max(end, newEnd)].",
-]
-
-
 class Solution:
     def insert(self, intervals: list[list[int]], newInterval: list[int]) -> list[list[int]]:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -56,7 +46,6 @@ TEST_CASES = [
         "name": "example2",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

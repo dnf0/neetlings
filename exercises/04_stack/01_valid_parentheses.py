@@ -25,26 +25,16 @@ Target:
     - Space Complexity: O(n)
 """
 
-HINTS = [
-    "A stack is perfect for this LIFO (Last-In-First-Out) problem.",
-    "Use a dictionary to map closing brackets to their corresponding opening brackets: {')': '(', '}': '{', ']': '['}.",
-    "Iterate through the string; push opening brackets onto the stack.",
-    "For closing brackets, check if the stack is non-empty and the top of the stack matches the expected opening bracket. If so, pop it; otherwise, return False. Finally, return True if the stack is empty.",
-]
-
-
 class Solution:
     def isValid(self, s: str) -> bool:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {"input": ("()",), "expected": True, "name": "example1"},
     {"input": ("()[]{}",), "expected": True, "name": "example2"},
     {"input": ("(]",), "expected": False, "name": "example3"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

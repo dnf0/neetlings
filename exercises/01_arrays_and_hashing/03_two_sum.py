@@ -29,14 +29,6 @@ Target:
     - Space Complexity: O(n)
 """
 
-HINTS = [
-    "A brute-force pair comparison takes O(n^2) time. Can we find the complementary value in O(1) time?",
-    "For each number x, the value needed to reach target is exactly `target - x`. A hash map can record previously seen numbers and their indices.",
-    "Inspect each element and check if its complement is already in the hash map before adding the current element. This ensures you never use the same element twice.",
-    "Initialize an empty dictionary `seen = {}`. Loop through `enumerate(nums)`. If `target - num` in `seen`, return `[seen[target - num], idx]`. Otherwise, store `seen[num] = idx`.",
-]
-
-
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
         """Find indices of two numbers that sum up to target.
@@ -54,7 +46,6 @@ class Solution:
         # TODO: Implement your solution here
         raise NotImplementedError
 
-
 TEST_CASES = [
     {"input": ([2, 7, 11, 15], 9), "expected": [0, 1], "name": "basic_positive"},
     {"input": ([3, 2, 4], 6), "expected": [1, 2], "name": "unsorted_indices"},
@@ -63,7 +54,6 @@ TEST_CASES = [
     {"input": ([0, 4, 3, 0], 0), "expected": [0, 3], "name": "zeros"},
     {"input": ([-3, 4, 3, 90], 0), "expected": [0, 2], "name": "mixed_signs"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

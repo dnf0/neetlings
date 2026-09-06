@@ -23,14 +23,6 @@ Target:
     - Space Complexity: O(n)
 """
 
-HINTS = [
-    "A standard sort on frequencies takes O(n log n), and a heap takes O(n log k). Can we achieve O(n) using the bounded nature of frequencies?",
-    "Since an element can appear at most len(nums) times, we can use Bucket Sort where the bucket index represents the occurrence count.",
-    "Multiple elements can share the same frequency, so each bucket should be a list. Empty frequencies will have empty lists. Scan buckets in descending order from len(nums) down to 1.",
-    "Count frequencies into a dictionary. Allocate `buckets = [[] for _ in range(len(nums) + 1)]` and append each element to `buckets[frequency]`. Traverse buckets in reverse and accumulate elements until k items are collected.",
-]
-
-
 class Solution:
     def topKFrequent(self, nums: list[int], k: int) -> list[int]:
         """Find the k most frequent elements in nums.
@@ -47,7 +39,6 @@ class Solution:
         """
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -81,7 +72,6 @@ TEST_CASES = [
         "name": "negative_duplicate",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

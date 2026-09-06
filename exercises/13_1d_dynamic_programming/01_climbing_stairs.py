@@ -25,27 +25,16 @@ Target:
     - Space Complexity: O(1)
 """
 
-
-HINTS = [
-    "Let dp[i] be the number of ways to reach step i. To reach step i, we could have come from step i-1 or step i-2.",
-    "This gives the relation: dp[i] = dp[i-1] + dp[i-2].",
-    "This is exactly the Fibonacci sequence!",
-    "Optimize space by keeping track of only the last two values: one and two, initially both 1.",
-]
-
-
 class Solution:
     def climbStairs(self, n: int) -> int:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {"input": (2,), "expected": 2, "name": "example1"},
     {"input": (3,), "expected": 3, "name": "example2"},
     {"input": (5,), "expected": 8, "name": "example3"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

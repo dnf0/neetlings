@@ -20,20 +20,10 @@ Target:
     - Space Complexity: O(n) (recursion stack)
 """
 
-
-HINTS = [
-    "We can use backtracking to generate all subsets. For each number, we have two choices: include it or exclude it.",
-    "Use a helper function dfs(i, current_subset) where i is the current index in nums.",
-    "Base case: if i == len(nums), append a copy of current_subset to our result.",
-    "Recursive step: first, include nums[i] and call dfs(i + 1, current_subset). Then, backtrack by removing nums[i] and call dfs(i + 1, current_subset).",
-]
-
-
 class Solution:
     def subsets(self, nums: list[int]) -> list[list[int]]:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -43,7 +33,6 @@ TEST_CASES = [
     },
     {"input": ([0],), "expected": [[], [0]], "name": "example2"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

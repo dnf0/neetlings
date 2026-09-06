@@ -26,14 +26,6 @@ Target:
     - Space Complexity: O(1) auxiliary
 """
 
-HINTS = [
-    "The water trapped directly above any bar at index `i` is determined by `min(max_left, max_right) - height[i]`, where `max_left` is the tallest bar to the left and `max_right` is the tallest bar to the right (if this value is positive).",
-    "While computing prefix and suffix maximum arrays solves this in O(n) time, it requires O(n) extra space. Can two pointers converging from both ends track running maximums in O(1) space?",
-    "If `left_max <= right_max`, we know for certain that the water level at the `left` pointer is bottlenecked by `left_max`, regardless of what lies between `left` and `right`. Therefore, we can safely compute trapped water at `left` and advance `left`.",
-    "Initialize `left = 0`, `right = len(height) - 1`, `left_max = height[left]`, `right_max = height[right]`, `total = 0`. While `left < right`: if `left_max <= right_max`, increment `left`, update `left_max = max(left_max, height[left])`, and add `left_max - height[left]` to `total`. Otherwise, decrement `right`, update `right_max = max(right_max, height[right])`, and add `right_max - height[right]` to `total`. Return `total`.",
-]
-
-
 class Solution:
     def trap(self, height: list[int]) -> int:
         """Calculate total amount of rainwater trapped between elevation bars.
@@ -49,7 +41,6 @@ class Solution:
         """
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -93,7 +84,6 @@ TEST_CASES = [
         "name": "multiple_basins",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

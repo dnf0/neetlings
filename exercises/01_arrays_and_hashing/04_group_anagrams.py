@@ -27,14 +27,6 @@ Target:
     - Space Complexity: O(m * n)
 """
 
-HINTS = [
-    "Two strings are anagrams if and only if their character counts are identical. How can we map each string to a common signature?",
-    "Instead of sorting each string (which takes O(n log n)), we can use a frequency count of 26 lowercase English letters as a canonical key in a hash map.",
-    "Python lists cannot be dictionary keys because they are mutable, but a tuple of counts is immutable and hashable. Handle empty strings and single characters gracefully.",
-    "Initialize a defaultdict(list). For each string s, build a 26-element count list, convert it to tuple(count), and append s to the list at that key. Return list(ans.values()).",
-]
-
-
 class Solution:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         """Group anagrams together from the input list of strings.
@@ -50,7 +42,6 @@ class Solution:
         """
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -95,7 +86,6 @@ TEST_CASES = [
         "name": "all_distinct_anagram_groups",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

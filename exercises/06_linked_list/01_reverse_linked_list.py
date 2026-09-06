@@ -19,19 +19,11 @@ Target:
 
 from neetlings.models import ListNode
 
-HINTS = [
-    "We can reverse the list iteratively by changing the next pointer of each node.",
-    "Keep track of three pointers: prev (initialized to None), curr (initialized to head), and nxt (the next node in the original list).",
-    "In a loop, before changing curr.next, save curr.next in nxt.",
-    "Set curr.next = prev, then update prev = curr and curr = nxt. At the end, prev will be the new head.",
-]
-
 
 class Solution:
     def reverseList(self, head: ListNode | None) -> ListNode | None:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -50,7 +42,6 @@ TEST_CASES = [
         "name": "example3",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

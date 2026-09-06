@@ -23,27 +23,16 @@ Target:
     - Space Complexity: O(1)
 """
 
-
-HINTS = [
-    "We can solve this with constant extra space using bitwise XOR operator (^).",
-    "XORing a number with itself yields 0: a ^ a = 0.",
-    "XORing a number with 0 yields the number itself: a ^ 0 = a.",
-    "Since XOR is associative and commutative, XORing all elements together will cancel out the duplicates and leave the single number.",
-]
-
-
 class Solution:
     def singleNumber(self, nums: list[int]) -> int:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {"input": ([2, 2, 1],), "expected": 1, "name": "example1"},
     {"input": ([4, 1, 2, 1, 2],), "expected": 4, "name": "example2"},
     {"input": ([1],), "expected": 1, "name": "example3"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

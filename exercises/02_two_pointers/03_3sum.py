@@ -33,14 +33,6 @@ Target:
     - Space Complexity: O(1) auxiliary (excluding output space)
 """
 
-HINTS = [
-    "Can we reduce 3Sum to the Two Sum problem? If we fix one element, what are we searching for among the remaining elements?",
-    "Sorting the array first in O(n log n) time allows us to fix the first number `nums[i]` and use a two-pointer approach for the remaining elements, looking for `nums[left] + nums[right] == -nums[i]`.",
-    "To avoid duplicate triplets, skip any repeated elements: if `i > 0 and nums[i] == nums[i - 1]`, continue. Similarly, after finding a valid triplet, advance `left` past duplicates and decrement `right` past duplicates.",
-    "Sort `nums`. Iterate `i` from `0` to `len(nums) - 2`. If `nums[i] > 0`, break early (triplets cannot sum to zero if all remaining elements are positive). Set `left = i + 1, right = len(nums) - 1`. While `left < right`, check `nums[i] + nums[left] + nums[right]`. If 0, record `[nums[i], nums[left], nums[right]]` and adjust both pointers skipping duplicates. If < 0, increment `left`. If > 0, decrement `right`.",
-]
-
-
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         """Find all unique triplets summing to zero.
@@ -56,7 +48,6 @@ class Solution:
         """
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -90,7 +81,6 @@ TEST_CASES = [
         "name": "negative_numbers",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

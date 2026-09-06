@@ -21,20 +21,10 @@ Target:
     - Space Complexity: O(1)
 """
 
-
-HINTS = [
-    "To rotate a matrix 90 degrees clockwise in-place, we can first transpose the matrix (swap matrix[r][c] and matrix[c][r]).",
-    "After transposing, reverse each row of the matrix.",
-    "Alternatively, rotate cell by cell in four-way swaps.",
-    "Transposing then reversing rows is simpler to implement and highly readable.",
-]
-
-
 class Solution:
     def rotate(self, matrix: list[list[int]]) -> None:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -48,7 +38,6 @@ TEST_CASES = [
         "name": "example2",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

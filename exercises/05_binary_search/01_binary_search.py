@@ -25,25 +25,15 @@ Target:
     - Space Complexity: O(1)
 """
 
-HINTS = [
-    "Maintain two pointers: l (left) starting at 0 and r (right) starting at len(nums) - 1.",
-    "While l <= r, calculate the middle index m = l + (r - l) // 2.",
-    "Compare nums[m] with the target. If they are equal, return m.",
-    "If nums[m] < target, search the right half by setting l = m + 1. If nums[m] > target, search the left half by setting r = m - 1. If not found after loop, return -1.",
-]
-
-
 class Solution:
     def search(self, nums: list[int], target: int) -> int:
         # TODO: Implement your solution here
         raise NotImplementedError
 
-
 TEST_CASES = [
     {"input": ([-1, 0, 3, 5, 9, 12], 9), "expected": 4, "name": "example1"},
     {"input": ([-1, 0, 3, 5, 9, 12], 2), "expected": -1, "name": "example2"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

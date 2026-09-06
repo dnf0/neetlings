@@ -23,26 +23,16 @@ Target:
     - Space Complexity: O(1)
 """
 
-HINTS = [
-    "Pointers can start at both ends of the string and move towards the center.",
-    "Ignore non-alphanumeric characters. You can use .isalnum() in Python.",
-    "Compare the characters at the two pointers while ignoring case using .lower().",
-    "If they don't match, return False. Otherwise, move the pointers closer. If they meet, return True.",
-]
-
-
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {"input": ("A man, a plan, a canal: Panama",), "expected": True, "name": "example1"},
     {"input": ("race a car",), "expected": False, "name": "example2"},
     {"input": (" ",), "expected": True, "name": "example3"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

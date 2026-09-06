@@ -50,14 +50,6 @@ Target:
     - Space Complexity: O(1) auxiliary space (fixed-size hash sets)
 """
 
-HINTS = [
-    "A Sudoku board is valid if no digit '1'-'9' repeats within any individual row, column, or 3x3 sub-box. Blank cells ('.') are ignored.",
-    "Hash sets or boolean lookup tables. Maintain tracking collections for each of the 9 rows, 9 columns, and 9 sub-boxes during a single traversal of the 9x9 grid.",
-    "Map cell coordinates (r, c) to their corresponding 3x3 sub-box index or coordinate tuple using integer division: `(r // 3, c // 3)`. Ensure only non-period characters are evaluated.",
-    "Initialize row sets, col sets, and box sets (e.g. `boxes = collections.defaultdict(set)` or 2D array). For each row r from 0..8 and col c from 0..8, fetch `val = board[r][c]`. If `val == '.'`, continue. If `val` is in `rows[r]`, `cols[c]`, or `boxes[(r // 3, c // 3)]`, return False; otherwise add `val` to all three sets. Return True if no conflicts arise.",
-]
-
-
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
         """Validate if a 9x9 Sudoku board conforms to Sudoku rules.
@@ -73,7 +65,6 @@ class Solution:
         """
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 VALID_PARTIAL_BOARD = [
     ["5", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -145,7 +136,6 @@ TEST_CASES = [
     {"input": (BOX_DUPLICATE_BOARD,), "expected": False, "name": "box_duplicate"},
     {"input": (EMPTY_BOARD,), "expected": True, "name": "all_dots_empty_board"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

@@ -33,20 +33,10 @@ Target:
     - Space Complexity: O(m * n)
 """
 
-
-HINTS = [
-    "Represent the grid as a graph where each '1' (land) is a node connected to adjacent land cells.",
-    "Iterate through each cell in the grid. When we find '1', it triggers a DFS/BFS to visit the entire island.",
-    "Increment the island count when a new island is found.",
-    "During DFS/BFS, mark visited land cells as '0' to avoid double counting and infinite loops.",
-]
-
-
 class Solution:
     def numIslands(self, grid: list[list[str]]) -> int:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -74,7 +64,6 @@ TEST_CASES = [
         "name": "example2",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()
