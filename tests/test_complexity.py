@@ -128,6 +128,32 @@ def twoSum(numbers, target):
     assert len(violations_dict) == 1
     assert "Disallowed call: dict" in violations_dict[0]
 
+    # Source snippet attempting to use literal {} dict for a hash map lookup.
+    code_dict_literal = """
+def twoSum(numbers, target):
+    lookup = {}
+    for i, n in enumerate(numbers):
+        diff = target - n
+        if diff in lookup:
+            return [lookup[diff] + 1, i + 1]
+        lookup[n] = i
+    return []
+"""
+    # Verify that literal {} is caught by AST check when dict is banned.
+    violations_literal = check_banned_syntax(code_dict_literal, banned_calls=["dict", "defaultdict"])
+    assert len(violations_literal) == 1
+    assert "Disallowed syntax: dict literal" in violations_literal[0]
+
+    # Source snippet attempting to use dict comprehension.
+    code_dict_comp = """
+def twoSum(numbers, target):
+    lookup = {n: i for i, n in enumerate(numbers)}
+    return []
+"""
+    violations_comp = check_banned_syntax(code_dict_comp, banned_calls=["dict", "defaultdict"])
+    assert len(violations_comp) == 1
+    assert "Disallowed syntax: dict comprehension" in violations_comp[0]
+
     # Source snippet attempting to use collections.defaultdict for Two Sum II.
     code_defaultdict_call = """
 from collections import defaultdict
