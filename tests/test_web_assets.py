@@ -43,5 +43,16 @@ def test_web_assets_contract() -> None:
 
     data = json.loads(bundle_json.read_text(encoding="utf-8"))
     assert "exercises" in data
-    assert len(data["exercises"]) >= 26
+    assert len(data["exercises"]) >= 30
+
+    # Ensure Category 2 verification checks that all 5 Two Pointers exercises are present in the bundle.
+    tp_chapter = next(ch for ch in data["chapters"] if ch["id"] == "two_pointers")
+    assert len(tp_chapter["exerciseIds"]) == 5
+    assert tp_chapter["exerciseIds"] == [
+        "01_valid_palindrome",
+        "02_two_sum_ii_input_array_is_sorted",
+        "03_3sum",
+        "04_container_with_most_water",
+        "05_trapping_rain_water",
+    ]
 

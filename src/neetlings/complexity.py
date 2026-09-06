@@ -88,6 +88,32 @@ class BannedSyntaxVisitor(ast.NodeVisitor):
             )
         self.generic_visit(node)
 
+    def visit_Dict(self, node: ast.Dict) -> None:
+        """Visit dictionary literals to detect disallowed dictionary creation.
+
+        Args:
+            node: The AST Dict node being inspected.
+        """
+        # Guard clause: check if dict literals are prohibited via banned_calls.
+        if "dict" in self.banned_calls:
+            self.violations.append(
+                f"Disallowed syntax: dict literal at line {node.lineno}, col {node.col_offset}"
+            )
+        self.generic_visit(node)
+
+    def visit_DictComp(self, node: ast.DictComp) -> None:
+        """Visit dictionary comprehensions to detect disallowed dictionary creation.
+
+        Args:
+            node: The AST DictComp node being inspected.
+        """
+        # Guard clause: check if dict comprehensions are prohibited via banned_calls.
+        if "dict" in self.banned_calls:
+            self.violations.append(
+                f"Disallowed syntax: dict comprehension at line {node.lineno}, col {node.col_offset}"
+            )
+        self.generic_visit(node)
+
 
 def check_banned_syntax(
     code: str,

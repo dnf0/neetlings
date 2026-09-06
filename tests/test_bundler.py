@@ -28,8 +28,8 @@ def test_generate_bundle_structure() -> None:
     # Verify that all 18 NeetCode categories are present.
     assert len(bundle["chapters"]) == 18
 
-    # Verify that the bundle contains all 9 Arrays & Hashing problems plus the remaining 17 chapters.
-    assert len(bundle["exercises"]) >= 26
+    # Verify that the bundle contains at least 30 exercises (9 Arrays + 5 Two Pointers + 16 remaining).
+    assert len(bundle["exercises"]) >= 30
 
     # Verify that Category 1 (Arrays & Hashing) registers all 9 exercise IDs in order.
     cat1 = bundle["chapters"][0]
@@ -47,9 +47,21 @@ def test_generate_bundle_structure() -> None:
         "09_longest_consecutive_sequence",
     ]
 
+    # Verify that Category 2 (Two Pointers) registers all 5 exercise IDs in order.
+    cat2 = bundle["chapters"][1]
+    assert cat2["id"] == "two_pointers"
+    assert len(cat2["exerciseIds"]) == 5
+    assert cat2["exerciseIds"] == [
+        "01_valid_palindrome",
+        "02_two_sum_ii_input_array_is_sorted",
+        "03_3sum",
+        "04_container_with_most_water",
+        "05_trapping_rain_water",
+    ]
+
 
 def test_manifest_categories_and_chapters() -> None:
-    """Verify that manifest.CATEGORIES and manifest.CHAPTERS register all 9 arrays problems."""
+    """Verify that manifest.CATEGORIES and manifest.CHAPTERS register problems correctly."""
     from neetlings.manifest import CATEGORIES, CHAPTERS
 
     # Ensure CHAPTERS is an alias for CATEGORIES.
@@ -69,6 +81,17 @@ def test_manifest_categories_and_chapters() -> None:
         "07_valid_sudoku",
         "08_encode_and_decode_strings",
         "09_longest_consecutive_sequence",
+    ]
+
+    # Verify that Category 2 is two_pointers with all 5 registered problems.
+    two_pointers_cat = CATEGORIES[1]
+    assert two_pointers_cat.id == "two_pointers"
+    assert two_pointers_cat.exercise_ids == [
+        "01_valid_palindrome",
+        "02_two_sum_ii_input_array_is_sorted",
+        "03_3sum",
+        "04_container_with_most_water",
+        "05_trapping_rain_water",
     ]
 
 
