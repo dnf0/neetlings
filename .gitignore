@@ -11,3 +11,6 @@ build/
 .DS_Store
 .worktrees/
 docs/assets/playground/playground-bundle.json
+graphify-out/*.json
+graphify-out/obsidian/
+graphify-out/
