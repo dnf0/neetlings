@@ -1,1 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+build/
+*.egg-info/
+.DS_Store
 .worktrees/
+docs/assets/playground/playground-bundle.json
+graphify-out/*.json
+graphify-out/obsidian/
+graphify-out/
