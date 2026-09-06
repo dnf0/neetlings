@@ -1,19 +1,23 @@
 {
   "status": "in_progress",
-  "step": 1,
-  "active_task": "Task 2: Container With Most Water & Trapping Rain Water",
+  "step": 2,
+  "active_task": "Task 3: ASCII Elevation & Water Diagnostics",
   "modified_files": [
     "exercises/02_two_pointers/02_two_sum_ii_input_array_is_sorted.py",
     "solutions/02_two_pointers/02_two_sum_ii_input_array_is_sorted.py",
     "exercises/02_two_pointers/03_3sum.py",
-    "solutions/02_two_pointers/03_3sum.py"
+    "solutions/02_two_pointers/03_3sum.py",
+    "exercises/02_two_pointers/04_container_with_most_water.py",
+    "solutions/02_two_pointers/04_container_with_most_water.py",
+    "exercises/02_two_pointers/05_trapping_rain_water.py",
+    "solutions/02_two_pointers/05_trapping_rain_water.py"
   ],
   "errors": [],
   "pending_tasks": [
-    "Task 3: ASCII Elevation & Water Diagnostics",
     "Task 4: Manifest Update, AST Guardrails, Bundler & Web Assets Integration"
   ],
   "completed_tasks": [
-    "Task 1: Two Sum II & 3Sum"
+    "Task 1: Two Sum II & 3Sum",
+    "Task 2: Container With Most Water & Trapping Rain Water"
   ]
 }
