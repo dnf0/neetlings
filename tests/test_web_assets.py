@@ -13,6 +13,11 @@ def test_web_assets_contract() -> None:
     playground_js = docs_dir / "assets" / "playground" / "playground.js"
     bundle_json = docs_dir / "assets" / "playground" / "playground-bundle.json"
 
+    if not bundle_json.exists():
+        from neetlings.bundler import export_bundle
+
+        export_bundle(bundle_json, repo_root)
+
     assert index_html.exists(), "docs/playground/index.html is missing"
     assert playground_css.exists(), "docs/assets/playground/playground.css is missing"
     assert playground_js.exists(), "docs/assets/playground/playground.js is missing"
