@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Any
 
 
 class ListNode:
@@ -42,6 +43,11 @@ class ListNode:
 
     def __repr__(self) -> str:
         return f"ListNode({self.to_list()})"
+
+    def __eq__(self, other: Any) -> bool:
+        if not isinstance(other, ListNode):
+            return False
+        return self.to_list() == other.to_list()
 
 
 class TreeNode:
@@ -98,6 +104,11 @@ class TreeNode:
 
     def __repr__(self) -> str:
         return f"TreeNode({self.val})"
+
+    def __eq__(self, other: Any) -> bool:
+        if not isinstance(other, TreeNode):
+            return False
+        return self.to_level_order() == other.to_level_order()
 
 
 class GraphNode:
