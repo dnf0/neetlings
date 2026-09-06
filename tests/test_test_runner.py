@@ -84,3 +84,72 @@ class Solution:
     assert res["status"] == "FAILED"
     assert res["diagnosticDiff"] is not None
     assert "--- Expected Tree ---" in res["diagnosticDiff"]
+
+
+def test_evaluate_failing_code_not_implemented() -> None:
+    """Verify that code raising NotImplementedError returns FAILED status, not PASSED."""
+    # Define a solution code block that raises NotImplementedError.
+    code = """
+class Solution:
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        raise NotImplementedError
+"""
+    # Define matching canonical code with correct test cases.
+    canonical_code = """
+TEST_CASES = [
+    {"input": ([1, 2, 3, 1],), "expected": True, "name": "example1"},
+    {"input": ([1, 2, 3, 4],), "expected": False, "name": "example2"},
+]
+"""
+    # Evaluate the student code against the canonical test cases.
+    res = evaluate_code(code, test_cases=None, method_name="containsDuplicate", canonical_code=canonical_code)
+
+    # Perform assertions on the failure details and statuses.
+    assert res["status"] == "FAILED"
+    assert res["passedCount"] == 0
+    assert res["totalCount"] == 2
+    assert len(res["cases"]) == 1
+    assert res["cases"][0]["status"] == "FAILED"
+    assert "NotImplementedError" in (res["cases"][0].get("error") or "")
+
+
+def test_evaluate_empty_test_cases_returns_error() -> None:
+    """Verify that when no test cases exist anywhere, status is ERROR, never PASSED."""
+    # Define a solution code block that returns a simple boolean.
+    code = """
+class Solution:
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        return False
+"""
+    # Evaluate the code with empty test cases.
+    res = evaluate_code(code, test_cases=[], method_name="containsDuplicate")
+
+    # Assert that the status is ERROR and an appropriate error message is given.
+    assert res["status"] == "ERROR"
+    assert res["passedCount"] == 0
+    assert "No test cases found" in (res["error"] or "")
+
+
+def test_evaluate_extracts_canonical_code_test_cases() -> None:
+    """Verify that evaluate_code automatically extracts test cases from canonical_code."""
+    # Define a correct solution code block.
+    code = """
+class Solution:
+    def containsDuplicate(self, nums: list[int]) -> bool:
+        return len(nums) != len(set(nums))
+"""
+    # Define matching canonical code with correct test cases.
+    canonical_code = """
+TEST_CASES = [
+    {"input": ([1, 2, 3, 1],), "expected": True, "name": "example1"},
+    {"input": ([1, 2, 3, 4],), "expected": False, "name": "example2"},
+]
+"""
+    # Evaluate code with None test cases to trigger auto extraction from canonical.
+    res = evaluate_code(code, test_cases=None, method_name="containsDuplicate", canonical_code=canonical_code)
+
+    # Assert that all extracted tests are evaluated and pass successfully.
+    assert res["status"] == "PASSED"
+    assert res["passedCount"] == 2
+    assert res["totalCount"] == 2
+
