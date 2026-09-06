@@ -1,7 +1,7 @@
 {
   "status": "in_progress",
-  "step": 2,
-  "active_task": "Task 3: ASCII Elevation & Water Diagnostics",
+  "step": 3,
+  "active_task": "Task 4: Manifest Update, AST Guardrails, Bundler & Web Assets Integration",
   "modified_files": [
     "exercises/02_two_pointers/02_two_sum_ii_input_array_is_sorted.py",
     "solutions/02_two_pointers/02_two_sum_ii_input_array_is_sorted.py",
@@ -10,14 +10,15 @@
     "exercises/02_two_pointers/04_container_with_most_water.py",
     "solutions/02_two_pointers/04_container_with_most_water.py",
     "exercises/02_two_pointers/05_trapping_rain_water.py",
-    "solutions/02_two_pointers/05_trapping_rain_water.py"
+    "solutions/02_two_pointers/05_trapping_rain_water.py",
+    "src/neetlings/visualizers.py",
+    "tests/test_visualizers.py"
   ],
   "errors": [],
-  "pending_tasks": [
-    "Task 4: Manifest Update, AST Guardrails, Bundler & Web Assets Integration"
-  ],
+  "pending_tasks": [],
   "completed_tasks": [
     "Task 1: Two Sum II & 3Sum",
-    "Task 2: Container With Most Water & Trapping Rain Water"
+    "Task 2: Container With Most Water & Trapping Rain Water",
+    "Task 3: ASCII Elevation & Water Diagnostics"
   ]
 }
