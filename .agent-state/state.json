@@ -1,41 +1,14 @@
 {
-  "status": "completed",
-  "step": 5,
+  "status": "ready",
+  "step": 0,
   "active_task": null,
-  "modified_files": [
-    "exercises/01_arrays_and_hashing/02_valid_anagram.py",
-    "solutions/01_arrays_and_hashing/02_valid_anagram.py",
-    "exercises/01_arrays_and_hashing/03_two_sum.py",
-    "solutions/01_arrays_and_hashing/03_two_sum.py",
-    "exercises/01_arrays_and_hashing/04_group_anagrams.py",
-    "solutions/01_arrays_and_hashing/04_group_anagrams.py",
-    "exercises/01_arrays_and_hashing/05_top_k_frequent_elements.py",
-    "solutions/01_arrays_and_hashing/05_top_k_frequent_elements.py",
-    "exercises/01_arrays_and_hashing/06_product_of_array_except_self.py",
-    "solutions/01_arrays_and_hashing/06_product_of_array_except_self.py",
-    "exercises/01_arrays_and_hashing/07_valid_sudoku.py",
-    "solutions/01_arrays_and_hashing/07_valid_sudoku.py",
-    "exercises/01_arrays_and_hashing/08_encode_and_decode_strings.py",
-    "solutions/01_arrays_and_hashing/08_encode_and_decode_strings.py",
-    "exercises/01_arrays_and_hashing/09_longest_consecutive_sequence.py",
-    "solutions/01_arrays_and_hashing/09_longest_consecutive_sequence.py",
-    "src/neetlings/complexity.py",
-    "src/neetlings/manifest.py",
-    "src/neetlings/test_runner.py",
-    "tests/test_bundler.py",
-    "tests/test_complexity.py",
-    "tests/test_reference_solutions.py",
-    "tests/test_test_runner.py",
-    "tests/test_web_assets.py",
-    "docs/assets/playground/playground-bundle.json"
-  ],
+  "modified_files": [],
   "errors": [],
-  "pending_tasks": [],
-  "completed_tasks": [
-    "Task 1: Valid Anagram & Two Sum",
-    "Task 2: Group Anagrams & Top K Frequent Elements",
-    "Task 3: Product of Array Except Self & Valid Sudoku",
-    "Task 4: Encode and Decode Strings & Longest Consecutive Sequence",
-    "Task 5: Manifest, AST Guardrail Tests, Bundler & Web Assets Integration"
-  ]
+  "pending_tasks": [
+    "Task 1: Two Sum II & 3Sum",
+    "Task 2: Container With Most Water & Trapping Rain Water",
+    "Task 3: ASCII Elevation & Water Diagnostics",
+    "Task 4: Manifest Update, AST Guardrails, Bundler & Web Assets Integration"
+  ],
+  "completed_tasks": []
 }
