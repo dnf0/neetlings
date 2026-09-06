@@ -15,3 +15,7 @@
 - Task 2: complete (commits ea53554..f2d858d, review clean)
 - Task 3: complete (commits 4ad4442..5efc1dc, review clean)
 - Task 4: complete (commits 85e31d2..6bd160a, review clean)
+Task 1: complete (commits 598cb23..e075973, review clean)
+Task 2: complete (commits e075973..ab69576, review clean)
+Task 3: complete (commits ab69576..46a937a, review clean)
+Task 4: complete (commits 46a937a..7fd0ca0, review clean)
