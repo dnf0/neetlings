@@ -1,30 +1,13 @@
 {
-  "status": "completed",
-  "step": 4,
-  "active_task": null,
-  "modified_files": [
-    "exercises/02_two_pointers/02_two_sum_ii_input_array_is_sorted.py",
-    "solutions/02_two_pointers/02_two_sum_ii_input_array_is_sorted.py",
-    "exercises/02_two_pointers/03_3sum.py",
-    "solutions/02_two_pointers/03_3sum.py",
-    "exercises/02_two_pointers/04_container_with_most_water.py",
-    "solutions/02_two_pointers/04_container_with_most_water.py",
-    "exercises/02_two_pointers/05_trapping_rain_water.py",
-    "solutions/02_two_pointers/05_trapping_rain_water.py",
-    "src/neetlings/visualizers.py",
-    "tests/test_visualizers.py",
-    "src/neetlings/manifest.py",
-    "tests/test_complexity.py",
-    "tests/test_bundler.py",
-    "tests/test_web_assets.py",
-    "docs/assets/playground/playground-bundle.json"
-  ],
+  "status": "in_progress",
+  "step": 0,
+  "active_task": "Task 1: Clean Exercise Starter Files & Update Manifest Exercise Rules",
+  "modified_files": [],
   "errors": [],
-  "pending_tasks": [],
-  "completed_tasks": [
-    "Task 1: Two Sum II & 3Sum",
-    "Task 2: Container With Most Water & Trapping Rain Water",
-    "Task 3: ASCII Elevation & Water Diagnostics",
-    "Task 4: Manifest Update, AST Guardrails, Bundler & Web Assets Integration"
-  ]
+  "pending_tasks": [
+    "Task 2: Fix Test Runner Engine to Execute Test Cases & Flag Failures",
+    "Task 3: Decouple Hints and Embed Exercise Rules in Asset Bundler",
+    "Task 4: Wire Web Client, Web Worker, and Rebuild Playground Bundle"
+  ],
+  "completed_tasks": []
 }
