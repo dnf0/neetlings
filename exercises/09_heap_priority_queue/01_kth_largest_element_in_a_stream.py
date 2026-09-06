@@ -32,20 +32,10 @@ Target:
     - Space Complexity: O(k)
 """
 
-
-HINTS = [
-    "A min-heap is ideal for maintaining the k largest elements in a stream.",
-    "Initialize a min-heap with the starting elements. While its size exceeds k, pop the minimum elements.",
-    "For each new value, push it onto the min-heap.",
-    "If the size of the heap exceeds k, pop the minimum element. The Kth largest element is then at the top of the min-heap (heap[0]).",
-]
-
-
 class Solution:
     def solve(self, k: int, nums: list[int], val_adds: list[int]) -> list[int]:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -54,7 +44,6 @@ TEST_CASES = [
         "name": "example1",
     }
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

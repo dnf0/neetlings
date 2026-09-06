@@ -95,3 +95,23 @@ def test_manifest_categories_and_chapters() -> None:
     ]
 
 
+def test_bundle_contains_hints_and_rules() -> None:
+    """Verify that hints are extracted and cleaned, and exercise rules are embedded."""
+    bundle = generate_bundle()
+    exercises = bundle["exercises"]
+    assert len(exercises) >= 30
+
+    for ex_id, ex in exercises.items():
+        assert "hints" in ex, f"Missing hints key for {ex_id}"
+        assert isinstance(ex["hints"], list), f"Hints must be list for {ex_id}"
+        assert len(ex["hints"]) >= 3, f"Expected at least 3 hints for {ex_id}, got {len(ex['hints'])}"
+        assert "HINTS = [" not in ex["code"], f"Found raw HINTS block in ex.code for {ex_id}"
+
+    # Verify rule injection
+    two_sum_ii = exercises["02_two_sum_ii_input_array_is_sorted"]
+    assert "dict" in two_sum_ii.get("bannedCalls", [])
+    prod = exercises["06_product_of_array_except_self"]
+    assert "/" in prod.get("bannedOps", [])
+
+
+

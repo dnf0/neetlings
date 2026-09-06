@@ -22,27 +22,16 @@ Target:
     - Space Complexity: O(1)
 """
 
-
-HINTS = [
-    "We can use Kadane's Algorithm to find the maximum sum subarray in linear time.",
-    "Keep track of the max_sum (initialized to the first element) and the curr_sum (initialized to 0).",
-    "For each number in nums, add it to curr_sum. If curr_sum is greater than max_sum, update max_sum.",
-    "If curr_sum becomes negative, discard the current subarray and reset curr_sum = 0.",
-]
-
-
 class Solution:
     def maxSubArray(self, nums: list[int]) -> int:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {"input": ([-2, 1, -3, 4, -1, 2, 1, -5, 4],), "expected": 6, "name": "example1"},
     {"input": ([1],), "expected": 1, "name": "example2"},
     {"input": ([5, 4, -1, 7, 8],), "expected": 23, "name": "example3"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

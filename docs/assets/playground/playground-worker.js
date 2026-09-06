@@ -70,8 +70,9 @@ self.onmessage = async function (e) {
             const pyodide = await pyodideReadyPromise;
 
             // Prepare inputs and arguments using Pyodide's toPy to avoid PyProxy limitations
-            const pyTestCases = pyodide.toPy(msg.testCases);
-            const pyBannedCalls = msg.bannedCalls ? pyodide.toPy(msg.bannedCalls) : null;
+            const pyTestCases = (msg.testCases && msg.testCases.length > 0) ? pyodide.toPy(msg.testCases) : null;
+            const pyBannedCalls = (msg.bannedCalls && msg.bannedCalls.length > 0) ? pyodide.toPy(msg.bannedCalls) : null;
+            const pyBannedOps = (msg.bannedOps && msg.bannedOps.length > 0) ? pyodide.toPy(msg.bannedOps) : null;
             const evaluate_code_fn = pyodide.globals.get("evaluate_code");
 
             // Execute the code
@@ -79,16 +80,23 @@ self.onmessage = async function (e) {
                 msg.code,
                 pyTestCases,
                 msg.methodName,
-                pyBannedCalls
+                pyBannedCalls,
+                pyBannedOps,
+                msg.solutionCode || null
             );
 
             // Convert Python dictionary result back to native JS object
             const result = resultProxy.toJs({ dict_converter: Object.fromEntries });
 
             // Clean up Pyodide proxies to avoid memory leaks
-            pyTestCases.destroy();
+            if (pyTestCases && typeof pyTestCases.destroy === "function") {
+                pyTestCases.destroy();
+            }
             if (pyBannedCalls && typeof pyBannedCalls.destroy === "function") {
                 pyBannedCalls.destroy();
+            }
+            if (pyBannedOps && typeof pyBannedOps.destroy === "function") {
+                pyBannedOps.destroy();
             }
             resultProxy.destroy();
 

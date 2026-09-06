@@ -21,14 +21,6 @@ Target:
     - Space Complexity: O(1)
 """
 
-HINTS = [
-    "An anagram must contain the exact same characters with identical frequencies. If lengths differ, can they be anagrams?",
-    "Use character frequency counting. Since characters are lowercase English letters, a fixed 26-element array or dictionary tracks counts.",
-    "Check if len(s) != len(t) as a guard clause. Increment frequencies for characters in s and decrement for characters in t.",
-    "Initialize a 26-element integer list. If lengths differ, return False. In one pass, update counts for s and t. Return True only if all counts are zero.",
-]
-
-
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         """Determine if string t is an anagram of string s.
@@ -46,7 +38,6 @@ class Solution:
         # TODO: Implement your solution here
         raise NotImplementedError
 
-
 TEST_CASES = [
     {"input": ("anagram", "nagaram"), "expected": True, "name": "standard_anagram"},
     {"input": ("rat", "car"), "expected": False, "name": "different_characters"},
@@ -56,7 +47,6 @@ TEST_CASES = [
     {"input": ("aaabbb", "ababab"), "expected": True, "name": "repeated_chars_anagram"},
     {"input": ("aaabbb", "aabbbb"), "expected": False, "name": "same_chars_different_counts"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

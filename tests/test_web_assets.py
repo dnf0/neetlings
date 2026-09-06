@@ -56,3 +56,24 @@ def test_web_assets_contract() -> None:
         "05_trapping_rain_water",
     ]
 
+    # Verify playground-bundle.json contains hints, bannedCalls, and bannedOps across all exercises.
+    # Also verify that ex.code contains no HINTS = [
+    for ex_id, ex in data["exercises"].items():
+        assert "hints" in ex, f"Exercise {ex_id} is missing 'hints'"
+        assert "bannedCalls" in ex, f"Exercise {ex_id} is missing 'bannedCalls'"
+        assert "bannedOps" in ex, f"Exercise {ex_id} is missing 'bannedOps'"
+        assert "HINTS = [" not in ex["code"], f"Exercise {ex_id} has HINTS defined inside the code string"
+
+    # Verify JS assets correctly pass and consume hints and rules
+    worker_js = (docs_dir / "assets" / "playground" / "playground-worker.js").read_text(encoding="utf-8")
+    assert "msg.solutionCode" in worker_js or "solutionCode || null" in worker_js
+    assert "msg.bannedOps" in worker_js
+    assert "msg.bannedCalls" in worker_js
+
+    playground_js_content = playground_js.read_text(encoding="utf-8")
+    assert "ex.hints" in playground_js_content
+    assert "solutionCode:" in playground_js_content
+    assert "bannedCalls:" in playground_js_content
+    assert "bannedOps:" in playground_js_content
+
+

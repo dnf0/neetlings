@@ -23,26 +23,16 @@ Target:
     - Space Complexity: O(1)
 """
 
-HINTS = [
-    "Use a sliding window or keep track of the minimum price seen so far.",
-    "Initialize min_price to infinity and max_profit to 0.",
-    "For each price, update min_price with the minimum of min_price and the current price.",
-    "Calculate the potential profit if we sell today (price - min_price) and update max_profit with the max of max_profit and this potential profit.",
-]
-
-
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {"input": ([7, 1, 5, 3, 6, 4],), "expected": 5, "name": "example1"},
     {"input": ([7, 6, 4, 3, 1],), "expected": 0, "name": "example2"},
     {"input": ([1, 2],), "expected": 1, "name": "example3"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

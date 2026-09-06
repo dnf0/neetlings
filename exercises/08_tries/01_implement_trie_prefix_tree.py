@@ -30,19 +30,11 @@ Target:
 
 from typing import Any
 
-HINTS = [
-    "Use a nested dictionary or a custom TrieNode class to represent characters at each node.",
-    "For insert, traverse the trie node-by-node, creating missing nested dictionaries as needed.",
-    "For search, follow characters. Ensure that the search word ends at a node flagged as the end of a word.",
-    "For startsWith, simply verify if the full prefix can be traversed without missing any characters.",
-]
-
 
 class Solution:
     def solve(self, operations: list[str], arguments: list[list[Any]]) -> list[Any]:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -54,7 +46,6 @@ TEST_CASES = [
         "name": "example1",
     }
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

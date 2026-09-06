@@ -30,27 +30,16 @@ Target:
     - Space Complexity: O(V + E)
 """
 
-
-HINTS = [
-    "This is a shortest path problem in a weighted directed graph. We can use Dijkstra's Algorithm.",
-    "Build an adjacency list mapping each source node to a list of its neighbors and edge weights: adj[u].append((v, w)).",
-    "Use a min-heap to keep track of nodes to visit: (time, node), initialized with (0, k).",
-    "Maintain a visited set. If the number of visited nodes equals n after processing, return the max time. If heap is empty and we haven't visited all nodes, return -1.",
-]
-
-
 class Solution:
     def networkDelayTime(self, times: list[list[int]], n: int, k: int) -> int:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {"input": ([[2, 1, 1], [2, 3, 1], [3, 4, 1]], 4, 2), "expected": 2, "name": "example1"},
     {"input": ([[1, 2, 1]], 2, 1), "expected": 1, "name": "example2"},
     {"input": ([[1, 2, 1]], 2, 2), "expected": -1, "name": "example3"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

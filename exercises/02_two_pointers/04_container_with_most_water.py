@@ -32,14 +32,6 @@ Target:
     - Space Complexity: O(1)
 """
 
-HINTS = [
-    "The area between two lines at index `i` and `j` (where `i < j`) is determined by the shorter line: `min(height[i], height[j]) * (j - i)`. How can we search for the maximum area efficiently without testing all pairs in O(n^2)?",
-    "Start with the widest possible container by placing two pointers at the outer boundaries: `left = 0` and `right = len(height) - 1`. The width is maximized here.",
-    "To find a potentially larger area as width decreases, which pointer should move inward? Moving the taller line cannot increase the area because the height is bounded by the shorter line, and width is smaller. Moving the shorter line is the only way that might yield a taller boundary.",
-    "Initialize `left = 0`, `right = len(height) - 1`, and `max_water = 0`. In each iteration while `left < right`: calculate `current_area = min(height[left], height[right]) * (right - left)`, update `max_water = max(max_water, current_area)`. If `height[left] < height[right]`, increment `left`; otherwise, decrement `right`. Return `max_water`.",
-]
-
-
 class Solution:
     def maxArea(self, height: list[int]) -> int:
         """Calculate the maximum area of water a container can store.
@@ -55,7 +47,6 @@ class Solution:
         """
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -89,7 +80,6 @@ TEST_CASES = [
         "name": "symmetric_high_ends",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

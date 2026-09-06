@@ -173,3 +173,11 @@ CATEGORIES: list[ChapterInfo] = [
 
 # Alias for compatibility with chapter-oriented interfaces.
 CHAPTERS: list[ChapterInfo] = CATEGORIES
+
+
+# Per-exercise complexity rules and banned syntax mappings.
+EXERCISE_RULES: dict[str, dict[str, list[str]]] = {
+    "06_product_of_array_except_self": {"banned_ops": ["/", "//"]},
+    "02_two_sum_ii_input_array_is_sorted": {"banned_calls": ["dict", "defaultdict"]},
+}
+

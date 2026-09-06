@@ -26,14 +26,6 @@ Target:
     - Space Complexity: O(1) auxiliary space (output array does not count toward space)
 """
 
-HINTS = [
-    "If division were allowed, we could compute the total product and divide by nums[i]. Without division, how can we compute the product of all elements to the left and all elements to the right of each position?",
-    "Prefix and postfix (suffix) products. For any element at index i, its answer is (product of elements before index i) * (product of elements after index i).",
-    "Instead of allocating separate prefix and postfix arrays (which would use O(n) auxiliary space), store the prefix products directly in the output array during a left-to-right pass, then multiply by a running postfix accumulator during a right-to-left pass. Watch out for zeros and negative numbers.",
-    "Initialize `res = [1] * len(nums)`. In the first loop, maintain prefix product `prefix = 1` and set `res[i] = prefix`, then `prefix *= nums[i]`. In the second loop going backwards, maintain `postfix = 1` and multiply `res[i] *= postfix`, then `postfix *= nums[i]`. Return `res`.",
-]
-
-
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
         """Compute an array where answer[i] is the product of all elements except nums[i].
@@ -50,7 +42,6 @@ class Solution:
         # TODO: Implement your solution here
         raise NotImplementedError
 
-
 TEST_CASES = [
     {"input": ([1, 2, 3, 4],), "expected": [24, 12, 8, 6], "name": "standard_positive"},
     {"input": ([-1, 1, 0, -3, 3],), "expected": [0, 0, 9, 0, 0], "name": "single_zero_with_negatives"},
@@ -61,7 +52,6 @@ TEST_CASES = [
     {"input": ([5, 0, 2],), "expected": [0, 10, 0], "name": "single_zero_in_middle"},
     {"input": ([1, -1],), "expected": [-1, 1], "name": "two_elements_mixed_signs"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

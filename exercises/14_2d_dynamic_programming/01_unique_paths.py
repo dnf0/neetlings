@@ -27,26 +27,15 @@ Target:
     - Space Complexity: O(n)
 """
 
-
-HINTS = [
-    "Let dp[r][c] be the number of unique paths to cell (r, c). We can reach it from the top (r-1, c) or left (r, c-1).",
-    "The recurrence relation is: dp[r][c] = dp[r-1][c] + dp[r][c-1].",
-    "Initialize a 1D row array of size n with 1s, since there is only 1 path to any cell in the first row.",
-    "Iterate row by row (starting from second row) and update the column values: row[c] += row[c-1].",
-]
-
-
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         # TODO: Implement your solution here
         raise NotImplementedError
 
-
 TEST_CASES = [
     {"input": (3, 7), "expected": 28, "name": "example1"},
     {"input": (3, 2), "expected": 3, "name": "example2"},
 ]
-
 
 def test_solution() -> None:
     sol = Solution()

@@ -19,19 +19,11 @@ Target:
 
 from neetlings.models import TreeNode
 
-HINTS = [
-    "Think about how to solve this recursively. For any given node, we want to swap its left and right children.",
-    "Invert the left subtree and right subtree recursively.",
-    "Swap the left and right pointers of the current node.",
-    "Base case: if the root is None, return None. Finally, return root.",
-]
-
 
 class Solution:
     def invertTree(self, root: TreeNode | None) -> TreeNode | None:
         # TODO: Implement your solution here
         raise NotImplementedError
-
 
 TEST_CASES = [
     {
@@ -50,7 +42,6 @@ TEST_CASES = [
         "name": "example3",
     },
 ]
-
 
 def test_solution() -> None:
     sol = Solution()
