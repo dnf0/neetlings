@@ -423,8 +423,8 @@
       const docstring = this.extractDocstring(ex.code);
       bodyElem.innerHTML = `<pre>${this.escapeHTML(docstring)}</pre>`;
 
-      // Render Hint Ladder
-      const hints = this.extractHints(ex.code);
+      // Render Hint Ladder from bundle hints or solution
+      const hints = ex.hints && ex.hints.length > 0 ? ex.hints : this.extractHints(ex.solution || ex.code);
       hintLadderElem.innerHTML = "";
       if (hints.length === 0) {
         hintLadderElem.innerHTML = "<p style='color: var(--text-muted); font-size: 12px;'>No hints available for this exercise.</p>";
@@ -503,9 +503,10 @@
         type: "RUN",
         exerciseId: this.activeExerciseId,
         code: userCode,
-        testCases: [], // Handled by Python test_runner evaluating test_solution()
+        solutionCode: ex.solution || ex.code,
         methodName: methodName,
-        bannedCalls: ["sort"],
+        bannedCalls: ex.bannedCalls || [],
+        bannedOps: ex.bannedOps || [],
       });
     },
 
