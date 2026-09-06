@@ -43,4 +43,5 @@ def test_web_assets_contract() -> None:
 
     data = json.loads(bundle_json.read_text(encoding="utf-8"))
     assert "exercises" in data
-    assert len(data["exercises"]) >= 18
+    assert len(data["exercises"]) >= 26
+

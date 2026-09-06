@@ -52,6 +52,25 @@ class Solution:
     assert "Disallowed call: sort" in (res["error"] or "")
 
 
+def test_evaluate_banned_ops_rejection() -> None:
+    """Verify that evaluate_code rejects code containing banned operators."""
+    # Code snippet that uses division for product_except_self.
+    code = """
+class Solution:
+    def productExceptSelf(self, nums: list[int]) -> list[int]:
+        total = 1
+        for n in nums:
+            total *= n
+        return [total // n for n in nums]
+"""
+    test_cases = [{"input": ([1, 2, 3, 4],), "expected": [24, 12, 8, 6], "name": "basic"}]
+    # Run code evaluation with banned floor division and true division.
+    res = evaluate_code(code, test_cases, method_name="productExceptSelf", banned_ops=["/", "//"])
+    assert res["status"] == "ERROR"
+    assert "Disallowed operator: //" in (res["error"] or "")
+
+
+
 def test_evaluate_tree_diagnostic_diff_on_failure() -> None:
     code = """
 class Solution:

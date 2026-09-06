@@ -27,3 +27,48 @@ def test_generate_bundle_structure() -> None:
 
     # Verify that all 18 NeetCode categories are present.
     assert len(bundle["chapters"]) == 18
+
+    # Verify that the bundle contains all 9 Arrays & Hashing problems plus the remaining 17 chapters.
+    assert len(bundle["exercises"]) >= 26
+
+    # Verify that Category 1 (Arrays & Hashing) registers all 9 exercise IDs in order.
+    cat1 = bundle["chapters"][0]
+    assert cat1["id"] == "arrays_and_hashing"
+    assert len(cat1["exerciseIds"]) == 9
+    assert cat1["exerciseIds"] == [
+        "01_contains_duplicate",
+        "02_valid_anagram",
+        "03_two_sum",
+        "04_group_anagrams",
+        "05_top_k_frequent_elements",
+        "06_product_of_array_except_self",
+        "07_valid_sudoku",
+        "08_encode_and_decode_strings",
+        "09_longest_consecutive_sequence",
+    ]
+
+
+def test_manifest_categories_and_chapters() -> None:
+    """Verify that manifest.CATEGORIES and manifest.CHAPTERS register all 9 arrays problems."""
+    from neetlings.manifest import CATEGORIES, CHAPTERS
+
+    # Ensure CHAPTERS is an alias for CATEGORIES.
+    assert CATEGORIES is CHAPTERS
+    assert len(CATEGORIES) == 18
+
+    # Verify that the first chapter is arrays_and_hashing with 9 registered problems.
+    arrays_cat = CATEGORIES[0]
+    assert arrays_cat.id == "arrays_and_hashing"
+    assert arrays_cat.exercise_ids == [
+        "01_contains_duplicate",
+        "02_valid_anagram",
+        "03_two_sum",
+        "04_group_anagrams",
+        "05_top_k_frequent_elements",
+        "06_product_of_array_except_self",
+        "07_valid_sudoku",
+        "08_encode_and_decode_strings",
+        "09_longest_consecutive_sequence",
+    ]
+
+
