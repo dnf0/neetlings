@@ -64,10 +64,23 @@ def evaluate_code(
     test_cases: list[dict[str, Any]],
     method_name: str,
     banned_calls: list[str] | None = None,
+    banned_ops: list[str] | None = None,
 ) -> dict[str, Any]:
-    """Execute user-supplied Python code in an isolated scope against test cases."""
-    # 1. Check for banned AST calls
-    violations = check_banned_syntax(code_str, banned_calls)
+    """Execute user-supplied Python code in an isolated scope against test cases.
+
+    Args:
+        code_str: The student or reference Python source code string.
+        test_cases: List of dictionaries containing test inputs, expected outputs, and names.
+        method_name: The name of the solution method on class Solution to invoke.
+        banned_calls: Disallowed functions or methods flagged via AST checking.
+        banned_ops: Disallowed operator representations (e.g., ['/', '//']) flagged via AST checking.
+
+    Returns:
+        Structured evaluation result dictionary containing execution status, pass counts,
+        duration, stdout logs, error details, case records, and diagnostic diffs.
+    """
+    # 1. Check for banned AST calls and prohibited operators.
+    violations = check_banned_syntax(code_str, banned_calls=banned_calls, banned_ops=banned_ops)
     if violations:
         return {
             "status": "ERROR",
