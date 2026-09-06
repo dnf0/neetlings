@@ -109,3 +109,60 @@ def longest_consecutive(nums):
     assert len(violations_builtin) == 1
     assert "Disallowed call: sorted" in violations_builtin[0]
 
+
+def test_check_banned_syntax_flags_two_sum_ii_hash_map() -> None:
+    """Verify that AST guardrail flags illegal hash map attempts in Two Sum II."""
+    # Source snippet attempting to use dict() constructor for a hash map lookup.
+    code_dict_call = """
+def twoSum(numbers, target):
+    lookup = dict()
+    for i, n in enumerate(numbers):
+        diff = target - n
+        if diff in lookup:
+            return [lookup[diff] + 1, i + 1]
+        lookup[n] = i
+    return []
+"""
+    # Verify that calling dict() is caught by AST banned calls check.
+    violations_dict = check_banned_syntax(code_dict_call, banned_calls=["dict", "defaultdict"])
+    assert len(violations_dict) == 1
+    assert "Disallowed call: dict" in violations_dict[0]
+
+    # Source snippet attempting to use collections.defaultdict for Two Sum II.
+    code_defaultdict_call = """
+from collections import defaultdict
+
+def twoSum(numbers, target):
+    lookup = defaultdict(int)
+    for i, n in enumerate(numbers):
+        diff = target - n
+        if diff in lookup:
+            return [lookup[diff] + 1, i + 1]
+        lookup[n] = i
+    return []
+"""
+    # Verify that calling defaultdict() is caught by AST banned calls check.
+    violations_defaultdict = check_banned_syntax(
+        code_defaultdict_call, banned_calls=["dict", "defaultdict"]
+    )
+    assert len(violations_defaultdict) == 1
+    assert "Disallowed call: defaultdict" in violations_defaultdict[0]
+
+    # Source snippet using optimal two-pointer approach without extra memory.
+    code_two_pointers = """
+def twoSum(numbers, target):
+    left, right = 0, len(numbers) - 1
+    while left < right:
+        total = numbers[left] + numbers[right]
+        if total == target:
+            return [left + 1, right + 1]
+        elif total < target:
+            left += 1
+        else:
+            right -= 1
+    return []
+"""
+    # Verify that clean two-pointer implementation passes with zero violations.
+    assert check_banned_syntax(code_two_pointers, banned_calls=["dict", "defaultdict"]) == []
+
+

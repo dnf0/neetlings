@@ -49,7 +49,13 @@ CATEGORIES: list[ChapterInfo] = [
         "two_pointers",
         "Two Pointers",
         "Converging indices, sorted search",
-        exercise_ids=["01_valid_palindrome"],
+        exercise_ids=[
+            "01_valid_palindrome",
+            "02_two_sum_ii_input_array_is_sorted",
+            "03_3sum",
+            "04_container_with_most_water",
+            "05_trapping_rain_water",
+        ],
     ),
     ChapterInfo(
         3,
