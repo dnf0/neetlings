@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neetlings — NeetCode 150 Interactive WebAssembly Playground</title>
+  <meta name="description" content="100% client-side WebAssembly learning platform for NeetCode 150 in Python 3.12 and Pyodide." />
+  <link rel="stylesheet" href="../assets/playground/playground.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+  <!-- Header Navigation Bar -->
+  <header id="app-header">
+    <div class="brand-section">
+      <a href="./" class="brand-logo">
+        <span style="font-size: 18px;">⚡</span>
+        <span>Neetlings</span>
+      </a>
+      <span class="brand-badge">NeetCode 150 WASM</span>
+    </div>
+
+    <div class="selectors-section">
+      <select id="category-select" class="select-control" aria-label="Select Category"></select>
+      <select id="exercise-select" class="select-control" aria-label="Select Problem"></select>
+      <span id="progress-badge" class="stats-pill">0 / 18 Solved</span>
+    </div>
+
+    <div class="nav-actions">
+      <button id="btn-export" class="nav-btn" title="Export Progress JSON">💾 Export</button>
+      <button id="btn-import" class="nav-btn" title="Import Progress JSON">📂 Import</button>
+      <button id="theme-toggle-btn" class="nav-btn" title="Toggle Dark/Light Mode">🌓 Theme</button>
+    </div>
+  </header>
+
+  <!-- 3-Pane Split Layout -->
+  <main id="playground-container">
+    <!-- 1. Left Pane: Problem Description & Hint Ladder -->
+    <section class="problem-pane">
+      <div class="problem-header">
+        <div class="problem-meta">
+          <span id="problem-category-tag" class="category-tag">Arrays & Hashing</span>
+          <span id="problem-status-pill" class="status-pill-small unsolved">Unsolved</span>
+        </div>
+        <h1 id="problem-title" class="problem-title">Contains Duplicate</h1>
+      </div>
+
+      <div id="problem-body" class="problem-body">
+        <p style="color: var(--text-muted);">Loading problem description...</p>
+      </div>
+
+      <div class="hint-ladder-section">
+        <div class="hint-ladder-title">
+          <span>💡 Progressive Hint Ladder</span>
+        </div>
+        <div id="hint-ladder">
+          <!-- Populated by playground.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Middle Pane: Monaco Code Editor -->
+    <section class="editor-pane">
+      <div class="editor-toolbar">
+        <div class="editor-tools-left">
+          <span class="lang-pill">Python 3.12</span>
+          <span style="font-size: 11px; color: var(--text-muted);">Ctrl+Enter to Run</span>
+        </div>
+        <div class="editor-tools-right">
+          <button id="btn-reset" class="editor-action-btn" title="Reset to starter code">↺ Reset</button>
+          <button id="btn-diff" class="editor-action-btn" title="Compare with reference solution">Solution Diff</button>
+          <button id="btn-run" class="editor-action-btn btn-run" title="Run code (Ctrl+Enter)">▶ Run Code</button>
+        </div>
+      </div>
+
+      <div id="monaco-editor-container"></div>
+      <div id="monaco-diff-container"></div>
+    </section>
+
+    <!-- 3. Right Pane: Diagnostics & Output Console -->
+    <section class="diagnostics-pane">
+      <div class="diagnostics-header">
+        <div class="diagnostics-title">
+          <span>Output & Diagnostics</span>
+        </div>
+        <span id="diagnostics-status-badge" class="result-badge ready">READY</span>
+      </div>
+
+      <div id="diagnostics-body" class="diagnostics-body">
+        <p style="color: var(--text-muted);">Run code (Ctrl+Enter) to evaluate against test suite.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- App Script -->
+  <script src="../assets/playground/playground.js"></script>
+</body>
+</html>
